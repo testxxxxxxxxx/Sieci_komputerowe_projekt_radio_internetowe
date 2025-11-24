@@ -9,6 +9,6 @@ namespace CommandsLogic {
 	class CommandProvider {
 		public:
 
-			static void run(Playlist* p, CommandQueee* cmd);
+			static void run(Playlist* p, CommandQueue* cmd);
 	};
 };

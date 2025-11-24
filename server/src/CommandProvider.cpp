@@ -6,7 +6,7 @@ using namespace CommandsLogic;
 
 void CommandProvider::run(Playlist* p, CommandQueue* cmd) {
 	while(1) {
-		Command c = cmd->pop();
+		Command c = cmd->remove();
 		
 		if(c.cmd == "ADD")
 			p->add(c.arg);

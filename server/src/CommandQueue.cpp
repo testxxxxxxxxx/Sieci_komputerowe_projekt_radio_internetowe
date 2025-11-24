@@ -14,5 +14,5 @@ Command CommandQueue::remove() {
 	this->cv.wait(lock, [&]{return !this->q.empty();});
 	Command cmd = this->q.front();
 	this->q.pop();
-	return c;
+	return cmd;
 }
