@@ -28,18 +28,37 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
                 event.events = EPOLLIN;
                 event.data.fd = cfd;
                 epoll_ctl(this->efd, EPOLL_CTL_ADD, cfd, &event);
+                this->clients[cfd] = Client{.fd = cfd};
             } else {
                 if(events[i].events & EPOLLIN) {
-                    char buf[20] = {};
-                    int rc = read(events[i].data.fd, buf, 20);
+                    auto &cl = this->clients[events[i].data.fd];
+                    char buf[256] = {};
+                    int rc = read(events[i].data.fd, buf, 256);
                     if(rc <= 0) {
                         close(events[i].data.fd);
                         epoll_ctl(this->efd, EPOLL_CTL_DEL, events[i].data.fd, nullptr);
-                    } else {    
-                        Command cd;
-                        cd.clientFd = events[i].data.fd;
-                        cd.cmd = buf;
-                        cmd->add(cd);
+                        this->clients.erase(events[i].data.fd);
+                    } else {  
+                        cl.recvBuffer.append(buf, rc);
+
+                        size_t pos;
+                        while((pos = cl.recvBuffer.find('\n')) != string::npos) {
+                            string line = cl.recvBuffer.substr(0, pos);
+                            cl.recvBuffer.erase(0, pos + 1);
+
+                            Command c;
+                            c.clientFd = events[i].data.fd;
+
+                            size_t spacePos = line.find(' ');
+                            if(spacePos != string::npos) {
+                                c.cmd = line.substr(0, spacePos);
+                                c.arg = line.substr(spacePos + 1);
+                            } else {
+                                c.cmd = line;
+                                c.arg = "";
+                            }
+
+                        cmd->add(c);
                     }  
                 }
                 if(events[i].events & EPOLLOUT)
