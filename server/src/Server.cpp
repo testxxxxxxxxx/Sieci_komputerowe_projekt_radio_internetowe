@@ -34,8 +34,7 @@ void Server::init() {
         exit(1);
     }
 
-    int flags = fcntl(this->fd, F_GETFL, 0);
-    fcntl(this->fd, F_SETFL, flags | O_NONBLOCK);
+    this->setnonblock(this->fd);
 }
 int Server::acceptConnection() {
     socklen_t caddrLen = sizeof(this->caddr);
@@ -47,4 +46,8 @@ int Server::acceptConnection() {
         return -1;
     }
     return cfd;
+}
+void Server::setnonblock(int fd) {
+    int flags = fcntl(fd, F_GETFL);
+    fcntl(fd, F_SETFL, flags | O_NONBLOCK);
 }

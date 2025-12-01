@@ -21,6 +21,7 @@ namespace SocketServer {
 
             void init();
             int acceptConnection();
+            void setnonblock(int fd);
 
     };
 };

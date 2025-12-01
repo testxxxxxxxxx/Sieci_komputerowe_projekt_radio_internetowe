@@ -1,13 +1,15 @@
-#include "./include/Server.hpp"
+#include "Server.hpp"
+#include "CommandQueue.hpp"
 #include <sys/epoll.h>
 
-using namespace SocketServer; 
+using namespace SocketServer;
+using namespace Commands; 
 
 namespace Multiplexing {
 
     class Multiplexer {
 
-        int edf, maxEvents;
+        int efd, maxEvents;
         Server* s;
 
         public:
@@ -19,6 +21,6 @@ namespace Multiplexing {
                 }
 
                 void init();
-                void loopEvent();
+                void loopEvent(CommandQueue* cmd);
     };
 };
