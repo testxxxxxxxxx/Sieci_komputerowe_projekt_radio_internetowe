@@ -28,7 +28,7 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
                 event.events = EPOLLIN;
                 event.data.fd = cfd;
                 epoll_ctl(this->efd, EPOLL_CTL_ADD, cfd, &event);
-                this->clients[cfd] = Client{.fd = cfd};
+                this->clients[cfd] = new Client(cfd);
             } else {
                 if(events[i].events & EPOLLIN) {
                     auto &cl = this->clients[events[i].data.fd];
@@ -39,12 +39,12 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
                         epoll_ctl(this->efd, EPOLL_CTL_DEL, events[i].data.fd, nullptr);
                         this->clients.erase(events[i].data.fd);
                     } else {  
-                        cl.recvBuffer.append(buf, rc);
+                        cl->recvBuffer.append(buf, rc);
 
                         size_t pos;
-                        while((pos = cl.recvBuffer.find('\n')) != string::npos) {
-                            string line = cl.recvBuffer.substr(0, pos);
-                            cl.recvBuffer.erase(0, pos + 1);
+                        while((pos = cl->recvBuffer.find('\n')) != string::npos) {
+                            string line = cl->recvBuffer.substr(0, pos);
+                            cl->recvBuffer.erase(0, pos + 1);
 
                             Command c;
                             c.clientFd = events[i].data.fd;

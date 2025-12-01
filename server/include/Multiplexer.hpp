@@ -13,14 +13,15 @@ namespace Multiplexing {
         queue<vector<int>> q;
         mutex cm;
         bool write = false;
-        string recvBuffer;               
+        string recvBuffer;       
+        Client(int _fd): fd(fd) {}        
     };
 
     class Multiplexer {
 
         int efd, maxEvents;
         Server* s;
-        unordered_map<int, Client> clients;
+        unordered_map<int, Client*> clients;
 
         public:
 
