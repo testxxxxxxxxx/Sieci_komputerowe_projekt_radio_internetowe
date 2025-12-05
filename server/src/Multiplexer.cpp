@@ -35,35 +35,104 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
                     char buf[256] = {};
                     int rc = read(events[i].data.fd, buf, 256);
                     if(rc <= 0) {
+                        if(cl->mode == Client::UPLOAD && cl->uploadFd != -1)
+                            close(cl->uploadFd);
                         close(events[i].data.fd);
+                        delete cl;
                         epoll_ctl(this->efd, EPOLL_CTL_DEL, events[i].data.fd, nullptr);
                         this->clients.erase(events[i].data.fd);
-                    } else {  
-                        cl->recvBuffer.append(buf, rc);
+                        continue;
+                    }
+                    if (cl->mode == Client::UPLOAD) {
+                        long long toWrite = min<long long>(rc, cl->uploadBytesLeft);
+                        write(cl->uploadFd, buf, toWrite);
+                        cl->uploadBytesLeft -= toWrite;
 
-                        size_t pos;
-                        while((pos = cl->recvBuffer.find('\n')) != string::npos) {
-                            string line = cl->recvBuffer.substr(0, pos);
-                            cl->recvBuffer.erase(0, pos + 1);
+                        if (rc > toWrite)
+                            cl->recvBuffer.append(buf + toWrite, rc - toWrite);
+
+                        if (cl->uploadBytesLeft <= 0) {
+                            close(cl->uploadFd);
+                            cl->uploadFd = -1;
+                            cl->mode = Client::NORMAL;
 
                             Command c;
-                            c.clientFd = events[i].data.fd;
+                            c.clientFd = cl->fd;
+                            c.cmd = "UPLOAD_DONE";
+                            c.arg = cl->uploadFilename;
+                            cmd->add(c);
+                        }
 
-                            size_t spacePos = line.find(' ');
-                            if(spacePos != string::npos) {
-                                c.cmd = line.substr(0, spacePos);
-                                c.arg = line.substr(spacePos + 1);
-                            } else {
-                                c.cmd = line;
-                                c.arg = "";
-                            }
+                        continue;
+                    }
+                    cl->recvBuffer.append(buf, rc);
+
+                    size_t pos;
+                    while ((pos = cl->recvBuffer.find('\n')) != string::npos) {
+
+                        string line = cl->recvBuffer.substr(0, pos);
+                        cl->recvBuffer.erase(0, pos + 1);
+
+                        if (line.rfind("UPLOAD ", 0) == 0) {
+                            // Format:
+                            // UPLOAD filename size
+                            size_t sp1 = line.find(' ');
+                            size_t sp2 = line.find(' ', sp1 + 1);
+
+                            cl->uploadFilename = line.substr(sp1 + 1, sp2 - sp1 - 1);
+                            cl->uploadBytesLeft = stoll(line.substr(sp2 + 1));
+
+                            cl->uploadFd = open(cl->uploadFilename.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0666);
+
+                            cl->mode = Client::UPLOAD;
+
+                            continue;
+                        }
+
+                        Command c;
+                        c.clientFd = cl->fd;
+
+                        size_t spacePos = line.find(' ');
+                        if (spacePos != string::npos) {
+                            c.cmd = line.substr(0, spacePos);
+                            c.arg = line.substr(spacePos + 1);
+                        } else {
+                            c.cmd = line;
+                            c.arg = "";
+                        }
 
                         cmd->add(c);
                     }  
                 }
-                if(events[i].events & EPOLLOUT)
-                    ;//write
+                if(events[i].events & EPOLLOUT) {
+                    if (!this->clients.count(events[i].data.fd))
+                        continue;
+                    auto& cl = this->clients[events[i].data.fd];
+                    lock_guard<mutex> lock(cl->cm);
 
+                    while(!cl->q.empty()) {
+                        auto& frame = cl->q.front();
+                        int n = write(events[i].data.fd, frame.data(), frame.size());
+                        if (n < 0) {
+                            if (errno == EAGAIN || errno == EWOULDBLOCK)
+                                break;
+                            close(events[i].data.fd);
+                            delete cl;
+                            epoll_ctl(this->efd, EPOLL_CTL_DEL, events[i].data.fd, nullptr);
+                            this->clients.erase(events[i].data.fd);
+                            break;
+                        }
+                        frame.erase(frame.begin(), frame.begin() + n);
+                        if(frame.empty())
+                            cl->q.pop();
+                    }
+
+                    if (cl->q.empty()) {
+                        event.events = EPOLLIN;
+                        event.data.fd = events[i].data.fd;
+                        epoll_ctl(this->efd, EPOLL_CTL_MOD, events[i].data.fd, &event);
+                    }
+                }
             }
         }
     }
