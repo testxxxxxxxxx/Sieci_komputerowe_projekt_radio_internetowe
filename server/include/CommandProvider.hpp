@@ -1,5 +1,5 @@
-#include "./include/Playlist.hpp"
-#include "./include/CommandQueue.hpp"
+#include "Playlist.hpp"
+#include "CommandQueue.hpp"
 
 using namespace Song;
 using namespace Commands;
@@ -9,6 +9,6 @@ namespace CommandsLogic {
 	class CommandProvider {
 		public:
 
-			static void run(Playlist* p, CommandQueue* cmd);
+			void run(Song::Playlist* p, Commands::CommandQueue* cmd);
 	};
 };

@@ -74,8 +74,6 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
                         cl->recvBuffer.erase(0, pos + 1);
 
                         if (line.rfind("UPLOAD ", 0) == 0) {
-                            // Format:
-                            // UPLOAD filename size
                             size_t sp1 = line.find(' ');
                             size_t sp2 = line.find(' ', sp1 + 1);
 
@@ -137,3 +135,4 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
         }
     }
 }
+

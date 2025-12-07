@@ -22,6 +22,5 @@ namespace Song {
 			string currentBlocking();
 			bool empty();
 			string remove();
-			string list();
 	};
 };

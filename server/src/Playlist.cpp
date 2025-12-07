@@ -35,6 +35,3 @@ string Playlist::remove() {
 	this->cv.notify_one();
 	return song;
 }
-string Playlist::list() {
-
-}

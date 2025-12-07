@@ -40,5 +40,6 @@ namespace Multiplexing {
 
                 void init();
                 void loopEvent(CommandQueue* cmd);
+                void Multiplexer::broadcast(const vector<uint8_t>& frame);
     };
 };
