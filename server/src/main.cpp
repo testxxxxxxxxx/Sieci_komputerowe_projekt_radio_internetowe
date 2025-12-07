@@ -18,14 +18,15 @@ int main(int argc, char *argv[]) {
 	SocketServer::Server s(12345);
 	CommandsLogic::CommandProvider cp;
 	Commands::CommandQueue cmd;
-	Threads::Audio audio;
-	unordered_map<int, Clients::Client*> clients;
 	Multiplexing::Multiplexer m(&s, MAX_CONN);
 	s.init();
 	m.init();
 
 
-	thread audioThr([&]{audio.run(&pl, clients); });
+	thread audioThr([&]{
+		Threads::Audio audio; 
+		audio.run(&pl, m.clients); 
+	});
 	thread commandThr([&]{cp.run(&pl, &cmd);});
 	thread epollThr([&]{m.loopEvent(&cmd);});
 
