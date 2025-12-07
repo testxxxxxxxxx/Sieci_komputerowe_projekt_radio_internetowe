@@ -6,7 +6,7 @@ namespace Clients {
     class Client {
         public:
             int fd;
-            queue<vector<int>> q;
+            queue<vector<u_int8_t>> q;
             mutex cm;
             bool write = false;
             string recvBuffer;
