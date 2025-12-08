@@ -1,3 +1,5 @@
+#ifndef MULTIPLEXER_HPP
+#define MULTIPLEXER_HPP
 #include "Server.hpp"
 #include "CommandQueue.hpp"
 #include <sys/epoll.h>
@@ -28,3 +30,4 @@ namespace Multiplexing {
                 void loopEvent(CommandQueue* cmd);
     };
 };
+#endif

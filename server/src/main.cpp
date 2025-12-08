@@ -22,7 +22,6 @@ int main(int argc, char *argv[]) {
 	s.init();
 	m.init();
 
-
 	thread audioThr([&]{
 		Threads::Audio audio; 
 		audio.run(&pl, m.clients); 

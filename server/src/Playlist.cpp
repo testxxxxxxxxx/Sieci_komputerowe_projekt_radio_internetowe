@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./include/Playlist.hpp"
+#include "../include/Playlist.hpp"
 
 using namespace std;
 using namespace Song;

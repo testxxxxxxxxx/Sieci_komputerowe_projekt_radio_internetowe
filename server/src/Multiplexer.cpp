@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fcntl.h>
-#include "./include/Multiplexer.hpp"
+#include "../include/Multiplexer.hpp"
 #include <unistd.h>
 
 using namespace Multiplexing;

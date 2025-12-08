@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./include/CommandProvider.hpp"
+#include "../include/CommandProvider.hpp"
 
 using namespace std;
 using namespace CommandsLogic;

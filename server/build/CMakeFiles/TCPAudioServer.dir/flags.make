@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/include
+CXX_INCLUDES = -I/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/include
 
 CXX_FLAGS = -std=gnu++17
 

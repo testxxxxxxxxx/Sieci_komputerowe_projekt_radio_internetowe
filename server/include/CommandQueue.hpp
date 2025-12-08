@@ -1,3 +1,5 @@
+#ifndef COMMAND_QUEUE
+#define COMMAND_QUEUE
 #include <iostream>
 #include <mutex>
 #include <queue>
@@ -29,3 +31,4 @@ namespace Commands {
 			Command remove();
 	};
 };
+#endif

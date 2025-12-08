@@ -1,3 +1,5 @@
+#ifndef CLIENT_HPP
+#define CLIENT_HPP
 #include <queue>
 #include <vector>
 #include <mutex>
@@ -19,3 +21,4 @@ namespace Clients {
             Client(int _fd): fd(fd) {}
     };
 };
+#endif

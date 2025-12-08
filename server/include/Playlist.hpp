@@ -1,3 +1,5 @@
+#ifndef PLAYLIST_HPP
+#define PLAYLIST_HPP
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -24,3 +26,4 @@ namespace Song {
 			string remove();
 	};
 };
+#endif

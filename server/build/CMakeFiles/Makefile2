@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server
+CMAKE_SOURCE_DIR = /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build
+CMAKE_BINARY_DIR = /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/TCPAudioServer.dir/clean
 CMakeFiles/TCPAudioServer.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPAudioServer.dir/build.make CMakeFiles/TCPAudioServer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TCPAudioServer.dir/build.make CMakeFiles/TCPAudioServer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target TCPAudioServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target TCPAudioServer"
 .PHONY : CMakeFiles/TCPAudioServer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TCPAudioServer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TCPAudioServer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles 0
 .PHONY : CMakeFiles/TCPAudioServer.dir/rule
 
 # Convenience name for target.

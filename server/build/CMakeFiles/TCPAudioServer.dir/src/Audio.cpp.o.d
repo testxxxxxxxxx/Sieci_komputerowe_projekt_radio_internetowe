@@ -1,7 +1,8 @@
 CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
- /usr/include/c++/13/bits/requires_hosted.h \
+ /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp \
+ /usr/include/stdc-predef.h \
+ /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Audio.hpp \
+ /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -150,8 +151,7 @@ CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Audio.hpp \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/include/Playlist.hpp \
+ /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Playlist.hpp \
  /usr/include/c++/13/queue /usr/include/c++/13/deque \
  /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
@@ -175,11 +175,9 @@ CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: \
  /usr/include/c++/13/bits/unique_ptr.h \
  /usr/include/c++/13/ext/aligned_buffer.h \
  /usr/include/c++/13/ext/concurrence.h \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/minimp3_ex.h \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/minimp3.h \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Client.hpp \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Multiplexer.hpp \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Server.hpp \
+ /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Client.hpp \
+ /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Multiplexer.hpp \
+ /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Server.hpp \
  /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/socket.h \
@@ -198,7 +196,7 @@ CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
  /usr/include/arpa/inet.h \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/CommandQueue.hpp \
+ /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/CommandQueue.hpp \
  /usr/include/x86_64-linux-gnu/sys/epoll.h \
  /usr/include/x86_64-linux-gnu/bits/epoll.h \
  /usr/include/c++/13/unordered_map \
@@ -208,5 +206,18 @@ CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/erase_if.h \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/minimp3_ex.h \
- /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/Multiplexer.hpp
+ /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/../include/dr_mp3.h \
+ /usr/include/c++/13/stdlib.h /usr/include/string.h \
+ /usr/include/strings.h /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h \
+ /usr/include/assert.h

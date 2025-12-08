@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./include/Server.hpp"
+#include "../include/Server.hpp"
 #include <fcntl.h>
 
 using namespace std;

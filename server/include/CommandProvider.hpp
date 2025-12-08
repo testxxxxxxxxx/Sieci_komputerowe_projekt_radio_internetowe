@@ -1,3 +1,5 @@
+#ifndef COMMAND_PROVIDER_HPP
+#define COMMAND_PROVIDER_HPP
 #include "Playlist.hpp"
 #include "CommandQueue.hpp"
 
@@ -12,3 +14,4 @@ namespace CommandsLogic {
 			void run(Song::Playlist* p, Commands::CommandQueue* cmd);
 	};
 };
+#endif

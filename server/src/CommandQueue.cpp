@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./include/CommandQueue.hpp"
+#include "../include/CommandQueue.hpp"
 
 using namespace std;
 using namespace Commands;
