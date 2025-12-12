@@ -1,6 +1,6 @@
-./server/build/
-./client/lib/
-./client/lib64/
-./client/bin/
-./client/pyvenv.cfg
+server/build/
+client/lib/
+client/lib64/
+client/bin/
+client/pyvenv.cfg
 .vscode/
