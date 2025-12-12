@@ -1,3 +1,3 @@
-/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles/TCPAudioServer.dir
-/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles/edit_cache.dir
-/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles/rebuild_cache.dir
+/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles/TCPAudioServer.dir
+/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles/edit_cache.dir
+/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles/rebuild_cache.dir

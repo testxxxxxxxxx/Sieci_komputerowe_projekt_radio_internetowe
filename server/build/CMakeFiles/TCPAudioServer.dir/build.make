@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server
+CMAKE_SOURCE_DIR = /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build
+CMAKE_BINARY_DIR = /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TCPAudioServer.dir/depend.make
@@ -70,102 +70,102 @@ include CMakeFiles/TCPAudioServer.dir/progress.make
 include CMakeFiles/TCPAudioServer.dir/flags.make
 
 CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: CMakeFiles/TCPAudioServer.dir/flags.make
-CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp
+CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp
 CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o: CMakeFiles/TCPAudioServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o -c /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.o -c /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp
 
 CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp > CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp > CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.i
 
 CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp -o CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Audio.cpp -o CMakeFiles/TCPAudioServer.dir/src/Audio.cpp.s
 
 CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o: CMakeFiles/TCPAudioServer.dir/flags.make
-CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o: /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandProvider.cpp
+CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o: /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandProvider.cpp
 CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o: CMakeFiles/TCPAudioServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o -c /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandProvider.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.o -c /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandProvider.cpp
 
 CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandProvider.cpp > CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandProvider.cpp > CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.i
 
 CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandProvider.cpp -o CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandProvider.cpp -o CMakeFiles/TCPAudioServer.dir/src/CommandProvider.cpp.s
 
 CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o: CMakeFiles/TCPAudioServer.dir/flags.make
-CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o: /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandQueue.cpp
+CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o: /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandQueue.cpp
 CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o: CMakeFiles/TCPAudioServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o -c /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandQueue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.o -c /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandQueue.cpp
 
 CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandQueue.cpp > CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandQueue.cpp > CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.i
 
 CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandQueue.cpp -o CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/CommandQueue.cpp -o CMakeFiles/TCPAudioServer.dir/src/CommandQueue.cpp.s
 
 CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o: CMakeFiles/TCPAudioServer.dir/flags.make
-CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o: /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Multiplexer.cpp
+CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o: /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Multiplexer.cpp
 CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o: CMakeFiles/TCPAudioServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o -c /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Multiplexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.o -c /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Multiplexer.cpp
 
 CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Multiplexer.cpp > CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Multiplexer.cpp > CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.i
 
 CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Multiplexer.cpp -o CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Multiplexer.cpp -o CMakeFiles/TCPAudioServer.dir/src/Multiplexer.cpp.s
 
 CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o: CMakeFiles/TCPAudioServer.dir/flags.make
-CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o: /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Playlist.cpp
+CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o: /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Playlist.cpp
 CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o: CMakeFiles/TCPAudioServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o -c /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Playlist.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.o -c /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Playlist.cpp
 
 CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Playlist.cpp > CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Playlist.cpp > CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.i
 
 CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Playlist.cpp -o CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Playlist.cpp -o CMakeFiles/TCPAudioServer.dir/src/Playlist.cpp.s
 
 CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o: CMakeFiles/TCPAudioServer.dir/flags.make
-CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o: /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Server.cpp
+CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o: /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Server.cpp
 CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o: CMakeFiles/TCPAudioServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o -c /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o -c /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Server.cpp
 
 CMakeFiles/TCPAudioServer.dir/src/Server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TCPAudioServer.dir/src/Server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Server.cpp > CMakeFiles/TCPAudioServer.dir/src/Server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Server.cpp > CMakeFiles/TCPAudioServer.dir/src/Server.cpp.i
 
 CMakeFiles/TCPAudioServer.dir/src/Server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TCPAudioServer.dir/src/Server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Server.cpp -o CMakeFiles/TCPAudioServer.dir/src/Server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/Server.cpp -o CMakeFiles/TCPAudioServer.dir/src/Server.cpp.s
 
 CMakeFiles/TCPAudioServer.dir/src/main.cpp.o: CMakeFiles/TCPAudioServer.dir/flags.make
-CMakeFiles/TCPAudioServer.dir/src/main.cpp.o: /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/main.cpp
+CMakeFiles/TCPAudioServer.dir/src/main.cpp.o: /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/main.cpp
 CMakeFiles/TCPAudioServer.dir/src/main.cpp.o: CMakeFiles/TCPAudioServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/main.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/main.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/main.cpp.o -c /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TCPAudioServer.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TCPAudioServer.dir/src/main.cpp.o -MF CMakeFiles/TCPAudioServer.dir/src/main.cpp.o.d -o CMakeFiles/TCPAudioServer.dir/src/main.cpp.o -c /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/main.cpp
 
 CMakeFiles/TCPAudioServer.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TCPAudioServer.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/main.cpp > CMakeFiles/TCPAudioServer.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/main.cpp > CMakeFiles/TCPAudioServer.dir/src/main.cpp.i
 
 CMakeFiles/TCPAudioServer.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TCPAudioServer.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/main.cpp -o CMakeFiles/TCPAudioServer.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/src/main.cpp -o CMakeFiles/TCPAudioServer.dir/src/main.cpp.s
 
 # Object files for target TCPAudioServer
 TCPAudioServer_OBJECTS = \
@@ -189,7 +189,7 @@ TCPAudioServer: CMakeFiles/TCPAudioServer.dir/src/Server.cpp.o
 TCPAudioServer: CMakeFiles/TCPAudioServer.dir/src/main.cpp.o
 TCPAudioServer: CMakeFiles/TCPAudioServer.dir/build.make
 TCPAudioServer: CMakeFiles/TCPAudioServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable TCPAudioServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable TCPAudioServer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TCPAudioServer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -201,6 +201,6 @@ CMakeFiles/TCPAudioServer.dir/clean:
 .PHONY : CMakeFiles/TCPAudioServer.dir/clean
 
 CMakeFiles/TCPAudioServer.dir/depend:
-	cd /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build /home/user/projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles/TCPAudioServer.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build /home/user/tmp_projects/Sieci_komputerowe_projekt_radio_internetowe/server/build/CMakeFiles/TCPAudioServer.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/TCPAudioServer.dir/depend
 
