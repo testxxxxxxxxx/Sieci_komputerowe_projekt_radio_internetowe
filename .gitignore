@@ -1,6 +1,6 @@
 server/build/
 client/lib/
-client/lib64/
+client/lib64
 client/include/
 client/bin/
 client/pyvenv.cfg
