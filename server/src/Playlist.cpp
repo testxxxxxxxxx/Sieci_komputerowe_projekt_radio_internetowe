@@ -7,7 +7,7 @@ using namespace Song;
 void Playlist::add(string name) {
 	lock_guard<mutex> lock(this->c);
 	this->q.push(name);
-	cv.notify_one();
+	this->cv.notify_one();
 }
 bool Playlist::next() {
 	lock_guard<mutex> lock(this->c);
