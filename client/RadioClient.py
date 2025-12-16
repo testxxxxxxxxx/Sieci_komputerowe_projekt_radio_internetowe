@@ -36,7 +36,7 @@ class RadioClient(tk.Tk):
         data = None
 
         with open(path, "rb") as file:
-            data = file.read
+            data = file.read()
         
         size = len(data)
 

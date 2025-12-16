@@ -5,3 +5,4 @@ client/include/
 client/bin/
 client/pyvenv.cfg
 .vscode/
+__pycache__
