@@ -25,7 +25,7 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
             if(events[i].data.fd == this->s->fd) {
                 int cfd = this->s->acceptConnection();
                 this->s->setnonblock(cfd);
-                event.events = EPOLLIN;
+                event.events = EPOLLIN | EPOLLOUT;
                 event.data.fd = cfd;
                 epoll_ctl(this->efd, EPOLL_CTL_ADD, cfd, &event);
                 this->clients[cfd] = new Client(cfd);

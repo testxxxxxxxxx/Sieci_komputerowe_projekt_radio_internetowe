@@ -29,7 +29,7 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients) {
                 (uint8_t*)pcmBuffer,
                 (uint8_t*)pcmBuffer + samples * sizeof(int16_t)
             );
-
+            
             for (auto& [fd, cl] : clients) {
                 lock_guard<mutex> lock(cl->cm);
                 cl->q.push(frame);

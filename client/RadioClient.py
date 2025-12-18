@@ -29,7 +29,7 @@ class RadioClient(tk.Tk):
     def upload_song(self) -> None:
         path = filedialog.askopenfilename(title="Wybierz plik audio", filetypes=[("MP3 files", "*.mp3"), ("All files", "*.*")])
         song = self.entry.get()
-        if path:
+        if not path:
             return 
         filename = path.split('/')[-1]
 
@@ -40,7 +40,7 @@ class RadioClient(tk.Tk):
         
         size = len(data)
 
-        header = f"UPLOAD {filename} {size}]n".encode()
+        header = f"UPLOAD {filename} {size}\n".encode()
         try:
             self.fd.sendall(header)
         except:
