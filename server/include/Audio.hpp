@@ -14,7 +14,7 @@ namespace Threads {
 	class Audio {
 		public:
 
-			void run(Song::Playlist* pl, unordered_map<int, Clients::Client*>& clients);
+			void run(Song::Playlist* pl, unordered_map<int, Clients::Client*>& clients, Multiplexing::Multiplexer* mux);
 	};
 };
 #endif

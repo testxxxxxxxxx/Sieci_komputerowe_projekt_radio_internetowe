@@ -28,6 +28,7 @@ namespace Multiplexing {
 
                 void init();
                 void loopEvent(CommandQueue* cmd);
+                void notifyWritable(int fd);
     };
 };
 #endif
