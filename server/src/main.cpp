@@ -14,8 +14,17 @@ using namespace CommandsLogic;
 using namespace SocketServer;
 
 int main(int argc, char *argv[]) {
+	if(argc < 2) {
+		perror("Usage: ./TCPAudioServer <port>");
+		return 1;
+	}
+	int PORT = atoi(argv[1]);
+	if(PORT == 0) {
+		perror("Value error: <port> is not a integer");
+		return 1;
+	}
 	Song::Playlist pl;
-	SocketServer::Server s(12345);
+	SocketServer::Server s(PORT);
 	CommandsLogic::CommandProvider cp;
 	Commands::CommandQueue cmd;
 	Multiplexing::Multiplexer m(&s, MAX_CONN);

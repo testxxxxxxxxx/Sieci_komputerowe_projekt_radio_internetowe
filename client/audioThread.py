@@ -18,7 +18,7 @@ def audio_thread(fd) -> None:
 
     while True:
         try:
-            data = fd.recv(4096 * 2)
+            data = fd.recv(FRAME_SIZE)
             if not data:
                 break
             buffer.extend(data)
