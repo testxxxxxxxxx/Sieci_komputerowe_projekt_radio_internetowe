@@ -4,10 +4,11 @@ import socket
 CHUNK = 4096 
 CHANNELS = 2
 RATE = 44100
-BYTES_PER_SAMPLE = 2 
+BYTES_PER_SAMPLE = 1 
 FRAME_SIZE = CHUNK * CHANNELS * BYTES_PER_SAMPLE
 
 def audio_thread(fd) -> None:
+    print("test")
     p = pyaudio.PyAudio()
     stream = p.open(format=pyaudio.paInt16,
                     channels=CHANNELS,
@@ -20,15 +21,17 @@ def audio_thread(fd) -> None:
         try:
             data = fd.recv(FRAME_SIZE)
             if not data:
-                break
+                continue
             buffer.extend(data)
-            
-            while len(buffer) >= FRAME_SIZE:
-                frame = buffer[:FRAME_SIZE]
-                stream.write(frame)
-                buffer = buffer[FRAME_SIZE:]
+
+            #print(f"data: {data}")
+
+            #while len(buffer) >= FRAME_SIZE:
+                #frame = buffer[:FRAME_SIZE]
+            stream.write(data)
+                #buffer = buffer[FRAME_SIZE:]
         except:
-            break
+            continue  
 
     stream.stop_stream()
     stream.close()
