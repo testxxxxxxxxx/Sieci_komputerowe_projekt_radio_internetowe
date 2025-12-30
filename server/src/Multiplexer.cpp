@@ -77,8 +77,14 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
                             size_t sp1 = line.find(' ');
                             size_t sp2 = line.find(' ', sp1 + 1);
 
+                            if(sp2 == string::npos)
+                                continue;
+
                             cl->uploadFilename = line.substr(sp1 + 1, sp2 - sp1 - 1);
-                            cl->uploadBytesLeft = stoll(line.substr(sp2 + 1));
+                            //cl->uploadBytesLeft = stoll(line.substr(sp2 + 1));
+                            string sizeStr = line.substr(sp2 + 1);
+                            cout<<"sizeStr: "<<sizeStr<<endl;
+                            cl->uploadBytesLeft = stoll(sizeStr);
 
                             cl->uploadFd = open(cl->uploadFilename.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0666);
 
