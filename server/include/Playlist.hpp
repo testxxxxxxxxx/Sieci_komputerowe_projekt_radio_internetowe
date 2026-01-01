@@ -5,6 +5,7 @@
 #include <vector>
 #include <mutex>
 #include <condition_variable>
+#include <atomic>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ namespace Song {
 		mutex c;
 		condition_variable cv;
 		public:
+			atomic<bool> changed{false};
 
 			Playlist() {}
 			virtual ~Playlist() = default;

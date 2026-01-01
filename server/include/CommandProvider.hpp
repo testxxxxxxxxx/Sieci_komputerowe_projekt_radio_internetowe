@@ -2,16 +2,19 @@
 #define COMMAND_PROVIDER_HPP
 #include "Playlist.hpp"
 #include "CommandQueue.hpp"
+#include <unordered_map>
+#include "Client.hpp"
 
 using namespace Song;
 using namespace Commands;
+using namespace Clients;
 
 namespace CommandsLogic {
 	
 	class CommandProvider {
 		public:
 
-			void run(Song::Playlist* p, Commands::CommandQueue* cmd);
+			void run(Song::Playlist* p, Commands::CommandQueue* cmd, unordered_map<int, Client*>& clients);
 	};
 };
 #endif

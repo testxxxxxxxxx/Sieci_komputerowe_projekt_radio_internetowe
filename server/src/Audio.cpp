@@ -21,10 +21,21 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing
             continue;
         }
 
+        pl->changed.store(false);
+
+        cout<<fileName<<endl;
+
         while(1) {
             size_t samples = drmp3_read_pcm_frames_s16(&mp3, CHUNK, pcmBuffer);
-            if (samples == 0)
+            if (samples == 0) {
+                pl->next();
                 break;
+            }
+            
+            if(pl->changed.exchange(false, memory_order_release)) {
+                cout<<"changed"<<endl;
+                break;
+            }
 
             size_t bytes = samples * mp3.channels * sizeof(int16_t);
 

@@ -14,6 +14,7 @@ bool Playlist::next() {
 	if(this->q.empty())
 		return false;
 	this->q.pop();
+	this->changed.store(true, memory_order_release);
 	this->cv.notify_one();
 	return true;
 }
