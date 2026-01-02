@@ -4,7 +4,7 @@ import socket
 CHUNK = 4096 
 CHANNELS = 2
 RATE = 44100
-BYTES_PER_SAMPLE = 1 
+BYTES_PER_SAMPLE = 2 
 FRAME_SIZE = CHUNK * CHANNELS * BYTES_PER_SAMPLE
 
 def audio_thread(fd) -> None:

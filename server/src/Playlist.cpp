@@ -14,7 +14,9 @@ bool Playlist::next() {
 	if(this->q.empty())
 		return false;
 	this->q.pop();
+	cout<<"next"<<endl;
 	this->changed.store(true, memory_order_release);
+	cout<<this->changed<<endl;
 	this->cv.notify_one();
 	return true;
 }

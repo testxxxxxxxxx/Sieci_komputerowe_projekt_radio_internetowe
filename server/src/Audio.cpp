@@ -11,7 +11,7 @@ using namespace Clients;
 void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing::Multiplexer* mux) {
 
     const int CHUNK = 4096;
-    int16_t pcmBuffer[CHUNK];
+    int16_t pcmBuffer[CHUNK * 2];
 
     while(1) {
         string fileName = pl->currentBlocking();
@@ -28,9 +28,13 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing
         while(1) {
             size_t samples = drmp3_read_pcm_frames_s16(&mp3, CHUNK, pcmBuffer);
             if (samples == 0) {
-                pl->next();
-                break;
+                if (mp3.currentPCMFrame >= mp3.totalPCMFrameCount) {
+                    pl->next(); 
+                    break;
+                }
+                continue;
             }
+            cout<<fileName<<endl;
             
             if(pl->changed.exchange(false, memory_order_release)) {
                 cout<<"changed"<<endl;

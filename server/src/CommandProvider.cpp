@@ -12,6 +12,7 @@ void CommandProvider::run(Playlist* p, CommandQueue* cmd, unordered_map<int, Cli
 		if(c.cmd == "ADD" || c.cmd == "UPLOAD_DONE")
 			p->add(c.arg);
 		else if(c.cmd == "NEXT"){
+			cout<<"cmd next"<<endl;
 			p->next();
 			/*for (auto& [fd, cl] : clients) {
     			lock_guard<mutex> lock(cl->cm);
