@@ -83,7 +83,7 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
                             cl->uploadFilename = line.substr(sp1 + 1, sp2 - sp1 - 1);
                             //cl->uploadBytesLeft = stoll(line.substr(sp2 + 1));
                             string sizeStr = line.substr(sp2 + 1);
-                            cout<<"sizeStr: "<<sizeStr<<endl;
+                            //cout<<"sizeStr: "<<sizeStr<<endl;
                             cl->uploadBytesLeft = stoll(sizeStr);
 
                             cl->uploadFd = open(cl->uploadFilename.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0666);
@@ -130,8 +130,24 @@ void Multiplexer::loopEvent(CommandQueue* cmd) {
                         if(frame.empty())
                             cl->q.pop();
                     }
-
-                    if (cl->q.empty()) {
+ 
+                    while(!cl->qText.empty()) {
+                        auto& s = cl->qText.front();
+                        int n = write(events[i].data.fd, s.c_str(), s.size());
+                        if (n < 0) {
+                            if (errno == EAGAIN || errno == EWOULDBLOCK)
+                                break;
+                            close(events[i].data.fd);
+                            delete cl;
+                            epoll_ctl(this->efd, EPOLL_CTL_DEL, events[i].data.fd, nullptr);
+                            this->clients.erase(events[i].data.fd);
+                            break;
+                        }
+                        s.erase(0, n);
+                        if(s.empty())
+                            cl->qText.pop();
+                    }
+                    if (cl->q.empty() && cl->qText.empty()) {
                         event.events = EPOLLIN;
                         event.data.fd = events[i].data.fd;
                         epoll_ctl(this->efd, EPOLL_CTL_MOD, events[i].data.fd, &event);

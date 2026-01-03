@@ -6,16 +6,16 @@ using namespace Song;
 
 void Playlist::add(string name) {
 	lock_guard<mutex> lock(this->c);
-	this->q.push(name);
+	this->q.push_front(name);
 	this->cv.notify_one();
 }
 bool Playlist::next() {
 	lock_guard<mutex> lock(this->c);
 	if(this->q.empty())
 		return false;
-	this->q.pop();
-	cout<<"next"<<endl;
-	this->changed.store(true, memory_order_release);
+	this->q.pop_front();
+	this->changed.store(true);
+	this->ch = true;
 	cout<<this->changed<<endl;
 	this->cv.notify_one();
 	return true;
@@ -29,12 +29,15 @@ bool Playlist::empty() {
 	lock_guard<mutex> lock(this->c);
 	return this->q.empty();
 }
-string Playlist::remove() {
+bool Playlist::removeLast() {
 	lock_guard<mutex> lock(this->c);
-	if(this->q.empty())
-		return "";
-	string song = this->q.front();
-	this->q.pop();
+	if(this->q.empty() || this->q.size() == 1)
+		return false;
+	this->q.pop_back();
 	this->cv.notify_one();
-	return song;
+	return true;
+}
+vector<string> Playlist::list() {
+	lock_guard<mutex> lock(this->c);
+	return vector<string>(this->q.begin(), this->q.end());
 }

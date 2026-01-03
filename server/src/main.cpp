@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 		Threads::Audio audio; 
 		audio.run(&pl, m.clients, &m); 
 	});
-	thread commandThr([&]{cp.run(&pl, &cmd, m.clients);});
+	thread commandThr([&]{cp.run(&pl, &cmd, m.clients, &m);});
 	thread epollThr([&]{m.loopEvent(&cmd);});
 
 	audioThr.join();

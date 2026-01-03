@@ -22,14 +22,10 @@ def audio_thread(fd) -> None:
             data = fd.recv(FRAME_SIZE)
             if not data:
                 continue
+
             buffer.extend(data)
 
-            #print(f"data: {data}")
-
-            #while len(buffer) >= FRAME_SIZE:
-                #frame = buffer[:FRAME_SIZE]
             stream.write(data)
-                #buffer = buffer[FRAME_SIZE:]
         except:
             continue  
 

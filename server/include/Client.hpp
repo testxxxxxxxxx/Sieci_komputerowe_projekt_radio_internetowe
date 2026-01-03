@@ -13,6 +13,7 @@ namespace Clients {
             bool write = false;
             string recvBuffer;
             enum Mode { NORMAL, UPLOAD } mode = NORMAL;
+            queue<string> qText;
 
             string uploadFilename;
             long long uploadBytesLeft = 0;

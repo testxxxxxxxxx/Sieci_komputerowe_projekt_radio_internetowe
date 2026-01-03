@@ -28,6 +28,9 @@ def main() -> None:
     threading.Thread(target=audio_thread, args=(fdAudio, ), daemon=True).start()
 
     app: RadioClient = RadioClient(fdGUI)
+
+    #threading.Thread(target=app.text_thread, daemon = True).start()
+
     app.mainloop()
 
 if __name__ == "__main__":

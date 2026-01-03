@@ -21,25 +21,41 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing
             continue;
         }
 
-        pl->changed.store(false);
+        //pl->changed.store(false);
+        pl->ch = false;
+
+        int count = 0;
 
         cout<<fileName<<endl;
 
+        for(auto& s : pl->list()) {
+            cout<<s<<endl;
+        }
+
         while(1) {
             size_t samples = drmp3_read_pcm_frames_s16(&mp3, CHUNK, pcmBuffer);
+ 
+            if(pl->changed.exchange(false)) {
+                cout<<"co"<<endl;
+                break;
+            } 
+
             if (samples == 0) {
-                if (mp3.currentPCMFrame >= mp3.totalPCMFrameCount) {
+                if (count >= 3) {
+                    cout<<"dlaczego"<<endl;
+                    count++;
                     pl->next(); 
                     break;
                 }
                 continue;
             }
-            cout<<fileName<<endl;
-            
-            if(pl->changed.exchange(false, memory_order_release)) {
-                cout<<"changed"<<endl;
+
+            count = 0;
+
+            /*if(pl->changed.exchange(false)) {
+                cout<<"co"<<endl;
                 break;
-            }
+            }*/
 
             size_t bytes = samples * mp3.channels * sizeof(int16_t);
 

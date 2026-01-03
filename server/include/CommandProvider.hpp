@@ -4,6 +4,7 @@
 #include "CommandQueue.hpp"
 #include <unordered_map>
 #include "Client.hpp"
+#include "Multiplexer.hpp"
 
 using namespace Song;
 using namespace Commands;
@@ -14,7 +15,7 @@ namespace CommandsLogic {
 	class CommandProvider {
 		public:
 
-			void run(Song::Playlist* p, Commands::CommandQueue* cmd, unordered_map<int, Client*>& clients);
+			void run(Song::Playlist* p, Commands::CommandQueue* cmd, unordered_map<int, Client*>& clients, Multiplexing::Multiplexer* mux);
 	};
 };
 #endif

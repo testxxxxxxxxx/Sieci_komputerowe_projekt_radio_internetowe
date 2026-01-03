@@ -1,7 +1,7 @@
 #ifndef PLAYLIST_HPP
 #define PLAYLIST_HPP
 #include <iostream>
-#include <queue>
+#include <deque>
 #include <vector>
 #include <mutex>
 #include <condition_variable>
@@ -12,11 +12,12 @@ using namespace std;
 namespace Song {
 
 	class Playlist {
-		queue<string> q;
+		deque<string> q;
 		mutex c;
 		condition_variable cv;
 		public:
 			atomic<bool> changed{false};
+			bool ch = false;
 
 			Playlist() {}
 			virtual ~Playlist() = default;
@@ -25,7 +26,8 @@ namespace Song {
 			bool next();
 			string currentBlocking();
 			bool empty();
-			string remove();
+			bool removeLast();
+			vector<string> list();	
 	};
 };
 #endif

@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import simpledialog
 from tkinter import filedialog
+from SongList import SongList
 import socket
 
 class RadioClient(tk.Tk):
@@ -13,6 +14,7 @@ class RadioClient(tk.Tk):
         self.playlist_box.pack(fill=tk.BOTH, expand=True)
         self.entry = tk.Entry(self)
         self.entry.pack(fill=tk.X)
+        self.song_list: SongList = SongList()
         
         btn_f = tk.Frame(self)
         btn_f.pack(fill=tk.X)
@@ -20,6 +22,8 @@ class RadioClient(tk.Tk):
         tk.Button(btn_f, text = "UPLOAD", command = self.upload_song).pack(side=tk.LEFT)
         tk.Button(btn_f, text = "REMOVE", command = self.remove_song).pack(side=tk.LEFT)
         tk.Button(btn_f, text = "NEXT", command=self.next_song).pack(side=tk.LEFT)
+
+        #self.after(100, self.list)
 
     def send_command(self, cmd) -> None:
         try:
@@ -62,3 +66,18 @@ class RadioClient(tk.Tk):
 
     def next_song(self) -> None:
         self.send_command("NEXT")
+    def list(self) -> None:
+        songs = self.song_queue.show()
+        self.playlist_box.delete(0, tk.END)
+        for s in songs:
+            self.playlist_box.insert(tk.END, s)
+
+    def text_thread(self) -> None:
+        while True:
+            try:
+                data = self.fd.recv(4096).decode()
+                if "PLAYLIST\n" not in data:
+                    continue
+                self.song_list.add(data[:len(data) - 9])
+            except:
+                continue
