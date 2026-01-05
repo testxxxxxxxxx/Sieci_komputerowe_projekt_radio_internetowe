@@ -24,6 +24,7 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing
         pl->changed.store(false);
 
         int count = 0;
+        bool started = false;
 
         cout<<fileName<<endl;
 
@@ -36,13 +37,15 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing
         while(1) {
             size_t samples = drmp3_read_pcm_frames_s16(&mp3, CHUNK, pcmBuffer);
  
-            /*if(pl->changed.exchange(false)) {
+            if(pl->changed.exchange(false)) {
                 cout<<"co"<<endl;
                 break;
-            }*/
+            }
 
             if (samples == 0) { 
-                if (count >= 1000000) {
+                if(!started)
+                    continue;
+                if (count >= 3) {
                     cout<<"dlaczego"<<endl;
                     pl->next();
                     break;
@@ -52,11 +55,12 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing
             }
 
             count = 0;
+            started = true;
 
-            if(pl->changed.exchange(false)) {
+            /*if(pl->changed.exchange(false)) {
                 cout<<"co"<<endl;
                 break;
-            }
+            }*/
 
             size_t bytes = samples * mp3.channels * sizeof(int16_t);
 
