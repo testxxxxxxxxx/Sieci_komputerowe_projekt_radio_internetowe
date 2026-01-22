@@ -6,7 +6,7 @@ using namespace Song;
 
 void Playlist::add(string name) {
 	lock_guard<mutex> lock(this->c);
-	this->q.push_front(name);
+	this->q.push_back(name);
 	this->cv.notify_one();
 }
 bool Playlist::next() {
@@ -16,7 +16,7 @@ bool Playlist::next() {
 	this->q.pop_front();
 	this->changed.store(true);
 	this->ch = true;
-	cout<<this->changed<<endl;
+	//cout<<this->changed<<endl;
 	this->cv.notify_one();
 	return true;
 }

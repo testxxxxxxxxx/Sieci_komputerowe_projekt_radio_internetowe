@@ -22,12 +22,25 @@ def audio_thread(fd) -> None:
             data = fd.recv(FRAME_SIZE)
             if not data:
                 continue
+            if b"FLUSH\n" in data:
+                print("FLUSH")
 
-            buffer.extend(data)
+                parts = data.split(b"FLUSH\n", 1)
+
+                buffer.clear()
+                stream.stop_stream()
+                stream.start_stream()
+
+                if len(parts) > 1 and parts[1]:
+                    stream.write(parts[1])   
+
+                continue
+
+            #buffer.extend(data)
 
             stream.write(data)
         except:
-            continue  
+            continue 
 
     stream.stop_stream()
     stream.close()

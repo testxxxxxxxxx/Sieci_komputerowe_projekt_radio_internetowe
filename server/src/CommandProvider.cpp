@@ -11,8 +11,18 @@ void CommandProvider::run(Playlist* p, CommandQueue* cmd, unordered_map<int, Cli
 		
 		if(c.cmd == "ADD" || c.cmd == "UPLOAD_DONE")
 			p->add(c.arg);
-		else if(c.cmd == "NEXT")
-			p->next();	
+		else if(c.cmd == "NEXT") {
+			
+			for (auto& [fd, cl] : clients) {
+                lock_guard<mutex> lock(cl->cm);
+				while(!cl->q.empty()) 
+					cl->q.pop();
+                cl->qText.push("FLUSH\n");
+                cl->write = true;
+                mux->notifyWritable(fd);
+            }
+			p->next();			
+		}
 		else if(c.cmd == "REMOVE")
 			p->removeLast();
 		else if(c.cmd == "LIST") {
