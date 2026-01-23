@@ -44,7 +44,7 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing
             }
 
             if (samples == 0) { 
-                if(!started)
+                /*if(!started)
                     continue;
                 if (count >= 3) {
                     //cout<<"dlaczego"<<endl;
@@ -56,7 +56,7 @@ void Audio::run(Playlist* pl, unordered_map<int, Client*>& clients, Multiplexing
                     //cout<<"dlaczego"<<endl;
                     //pl->next();
                     //break;
-                //}
+                //}*/
 
                 continue;
             }

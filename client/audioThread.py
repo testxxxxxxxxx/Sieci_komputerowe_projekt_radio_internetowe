@@ -8,7 +8,6 @@ BYTES_PER_SAMPLE = 2
 FRAME_SIZE = CHUNK * CHANNELS * BYTES_PER_SAMPLE
 
 def audio_thread(fd) -> None:
-    print("test")
     p = pyaudio.PyAudio()
     stream = p.open(format=pyaudio.paInt16,
                     channels=CHANNELS,

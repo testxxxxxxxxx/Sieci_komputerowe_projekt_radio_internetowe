@@ -24,13 +24,14 @@ def main() -> None:
     fdAudio.connect((SERVER_HOST, SERVER_PORT))
     fdGUI = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     fdGUI.connect((SERVER_HOST, SERVER_PORT))
+    fdAudio.setblocking(False)
+    #fdGUI.setblocking(False)
 
     threading.Thread(target=audio_thread, args=(fdAudio, ), daemon=True).start()
-
+ 
     app: RadioClient = RadioClient(fdGUI)
 
-    #threading.Thread(target=app.text_thread, daemon = True).start()
-
+    threading.Thread(target=app.text_thread, daemon = True).start()
     app.mainloop()
 
 if __name__ == "__main__":

@@ -15,6 +15,7 @@ class RadioClient(tk.Tk):
         self.entry = tk.Entry(self)
         self.entry.pack(fill=tk.X)
         self.song_list: SongList = SongList()
+        #self.fd.setblocking(False)
         
         btn_f = tk.Frame(self)
         btn_f.pack(fill=tk.X)
@@ -22,8 +23,9 @@ class RadioClient(tk.Tk):
         tk.Button(btn_f, text = "UPLOAD", command = self.upload_song).pack(side=tk.LEFT)
         tk.Button(btn_f, text = "REMOVE", command = self.remove_song).pack(side=tk.LEFT)
         tk.Button(btn_f, text = "NEXT", command=self.next_song).pack(side=tk.LEFT)
+        tk.Button(btn_f, text = "LIST", command=self.list_song).pack(side=tk.LEFT)
 
-        #self.after(100, self.list)
+        self.after(100, self.list)
 
     def send_command(self, cmd) -> None:
         try:
@@ -59,25 +61,31 @@ class RadioClient(tk.Tk):
             print("Upload failure")
 
     def remove_song(self) -> None:
-        song = self.entry.get()
-        if song:
-            self.send_command(f"REMOVE {song}")
-            self.entry.delete(0, tk.END)
+        self.send_command(f"REMOVE")
 
     def next_song(self) -> None:
         self.send_command("NEXT")
+    def list_song(self) -> None:
+        self.send_command("LIST")
     def list(self) -> None:
-        songs = self.song_queue.show()
+        songs = self.song_list.show()
         self.playlist_box.delete(0, tk.END)
         for s in songs:
             self.playlist_box.insert(tk.END, s)
 
     def text_thread(self) -> None:
+        buffer = ""
         while True:
             try:
                 data = self.fd.recv(4096).decode()
-                if "PLAYLIST\n" not in data:
+                if not data:
                     continue
-                self.song_list.add(data[:len(data) - 9])
+                buffer += data
+                while "\n" in buffer:
+                    line, buffer = buffer.split("\n", 1)
+                    if line.endswith("PLAYLIST"):
+                        song_name = line[:-8]
+                        self.song_list.add(song_name)
+                        self.after(0, self.list)
             except:
                 continue
