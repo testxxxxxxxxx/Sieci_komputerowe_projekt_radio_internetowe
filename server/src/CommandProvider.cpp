@@ -9,8 +9,10 @@ void CommandProvider::run(Playlist* p, CommandQueue* cmd, unordered_map<int, Cli
 	while(1) {
 		Command c = cmd->remove();
 		
-		if(c.cmd == "ADD" || c.cmd == "UPLOAD_DONE")
+		if(c.cmd == "ADD" || c.cmd == "UPLOAD_DONE") {
 			p->add(c.arg);
+			cout<<"UPLOAD_DONE"<<endl;
+		}
 		else if(c.cmd == "NEXT") {
 			for (auto& [fd, cl] : clients) {
                 lock_guard<mutex> lock(cl->cm);
@@ -30,11 +32,18 @@ void CommandProvider::run(Playlist* p, CommandQueue* cmd, unordered_map<int, Cli
 		else if(c.cmd == "LIST") {
 			auto list = p->list();
 			
-			Client* cl = clients[c.clientFd];
+			for(auto& [fd, cl]: clients) {
+				lock_guard<mutex> lock(cl->cm);
+				for(auto& s : list)
+					cl->qText.push(s + "PLAYLIST\n");
+				mux->notifyWritable(fd);
+			}
+			cout<<"LIST"<<endl;
+			/*Client* cl = clients[c.clientFd];
 			lock_guard<mutex> lock(cl->cm);
 			for(auto& s : list)
 				cl->qText.push(s + "PLAYLIST\n");
-			mux->notifyWritable(c.clientFd);
+			mux->notifyWritable(c.clientFd);*/
 		}
 	}
 }
