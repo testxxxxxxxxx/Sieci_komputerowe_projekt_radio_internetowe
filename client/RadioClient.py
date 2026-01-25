@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import simpledialog
 from tkinter import filedialog
 from SongList import SongList
+from queue import Queue
+import threading
 import socket
 
 class RadioClient(tk.Tk):
@@ -16,16 +18,23 @@ class RadioClient(tk.Tk):
         self.entry.pack(fill=tk.X)
         self.song_list: SongList = SongList()
         #self.fd.setblocking(False)
+        self.cmd_queue = Queue()
         
         btn_f = tk.Frame(self)
         btn_f.pack(fill=tk.X)
 
-        tk.Button(btn_f, text = "UPLOAD", command = self.upload_song).pack(side=tk.LEFT)
+        '''tk.Button(btn_f, text = "UPLOAD", command = self.upload_song).pack(side=tk.LEFT)
         tk.Button(btn_f, text = "REMOVE", command = self.remove_song).pack(side=tk.LEFT)
         tk.Button(btn_f, text = "NEXT", command=self.next_song).pack(side=tk.LEFT)
-        tk.Button(btn_f, text = "LIST", command=self.list_song).pack(side=tk.LEFT)
+        tk.Button(btn_f, text = "LIST", command=self.list_song).pack(side=tk.LEFT)'''
+
+        tk.Button(btn_f, text = "UPLOAD", command = self.upload_song).pack(side=tk.LEFT)
+        tk.Button(btn_f, text = "REMOVE", command = lambda: self.cmd_queue.put("REMOVE")).pack(side=tk.LEFT)
+        tk.Button(btn_f, text = "NEXT", command=lambda: self.cmd_queue.put("NEXT")).pack(side=tk.LEFT)
+        tk.Button(btn_f, text = "LIST", command=lambda: self.cmd_queue.put("LIST")).pack(side=tk.LEFT)
 
         self.after(100, self.list)
+        threading.Thread(target=self.cmd_thread, daemon=True).start()
 
     def send_command(self, cmd) -> None:
         try:
@@ -66,12 +75,27 @@ class RadioClient(tk.Tk):
     def next_song(self) -> None:
         self.send_command("NEXT")
     def list_song(self) -> None:
+        self.song_list.clear()
         self.send_command("LIST")
     def list(self) -> None:
         songs = self.song_list.show()
         self.playlist_box.delete(0, tk.END)
         for s in songs:
             self.playlist_box.insert(tk.END, s)
+    def cmd_thread(self) -> None:
+        while True:
+            cmd = self.cmd_queue.get()  
+            if not cmd:
+                continue
+            try:
+                self.fd.sendall((cmd + "\n").encode())
+                print(cmd)
+            except BlockingIOError:
+                import time
+                time.sleep(0.01)
+                self.cmd_queue.put(cmd)
+            except Exception as e:
+                print("Command send error:", e)
 
     def text_thread(self) -> None:
         buffer = ""
